@@ -1,14 +1,15 @@
 package sort
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestInsertionSortTable(t *testing.T) {
 	testCases := []struct {
-		Name string
-		Numbers []int32
+		Name     string
+		Numbers  []int32
 		Expected []int32
 	}{
 		{
@@ -22,17 +23,18 @@ func TestInsertionSortTable(t *testing.T) {
 			Expected: []int32{1, 4, 9},
 		},
 		{
-			Name: "1 number",
-			Numbers: []int32{4},
+			Name:     "1 number",
+			Numbers:  []int32{4},
 			Expected: []int32{4},
 		},
 	}
 
 	for _, tc := range testCases {
+		tc := tc
 		t.Run(tc.Name, func(t *testing.T) {
+			t.Parallel()
 			InsertionSort(tc.Numbers)
 			assert.True(t, assert.ObjectsAreEqualValues(tc.Expected, tc.Numbers))
 		})
 	}
 }
-
