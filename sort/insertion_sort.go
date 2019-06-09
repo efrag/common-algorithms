@@ -1,11 +1,5 @@
 package sort
 
-func swap(nums []int32, i, j int) {
-	tmp := nums[i]
-	nums[i] = nums[j]
-	nums[j] = tmp
-}
-
 func InsertionSort(nums []int32) {
 	for pos := 1; pos < len(nums); pos++ {
 		item := nums[pos]
